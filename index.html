@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歡迎加入工教系</title>
+    <style>
+        /* 全局樣式設定 */
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif;
+            background-color: #f4f9f4; /* 淡淡的自然綠色底，呼應宮崎駿風格 */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 標題樣式 */
+        h1 {
+            text-align: center;
+            color: #2c5e3b;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 3px solid #8fc1a3;
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        /* 師資介紹 (網格佈局) */
+        .faculty-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .faculty-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .faculty-card:hover {
+            transform: translateY(-5px);
+        }
+        .faculty-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            /* ✨ 宮崎駿風格濾鏡模擬：增加暖色調、飽和度與對比度 */
+            filter: sepia(20%) saturate(140%) contrast(110%) brightness(105%) hue-rotate(-5deg);
+            transition: filter 0.3s ease;
+        }
+        .faculty-card img:hover {
+            filter: sepia(10%) saturate(160%) contrast(120%) brightness(110%);
+        }
+        .faculty-name {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px 10px;
+            background-color: #8fc1a3;
+            color: #fff;
+            margin: 0;
+            cursor: pointer;
+        }
+        .faculty-info {
+            display: none;
+            padding: 15px;
+            background-color: #fafafa;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        /* 活動介紹區塊 */
+        .activity-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .activity-section ul {
+            padding-left: 20px;
+        }
+        .activity-section li {
+            margin-bottom: 10px;
+        }
+
+        /* 影片區塊 */
+        .video-container {
+            text-align: center;
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        video, iframe {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+    <script>
+        // 控制師資資料展開/收合的 JavaScript
+        function toggleInfo(id) {
+            var infoBox = document.getElementById(id);
+            if (infoBox.style.display === "block") {
+                infoBox.style.display = "none";
+            } else {
+                infoBox.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>歡迎加入工教系</h1>
+
+    <h2>副標1：師資介紹</h2>
+    <p style="text-align: center; color: #666;">點擊老師的照片或名字，即可查看詳細資料！</p>
+    
+    <div class="faculty-grid">
+        <div class="faculty-card">
+            <img src="林玄良主任.jpg" alt="林玄良主任" onclick="toggleInfo('info-lin1')">
+            <p class="faculty-name" onclick="toggleInfo('info-lin1')">林玄良 教授兼系主任</p>
+            <div id="info-lin1" class="faculty-info">
+                <p><strong>學歷：</strong>國立交通大學機械工程學系博士<br>國立台灣師範大學工業教育研究所碩士<br>國立台北工專機械工程科畢業</p>
+                <p><strong>信箱：</strong>hllin@mail.nknu.edu.tw</p>
+                <p><strong>研究室：</strong>7613</p>
+            </div>
+        </div>
+
+        <div class="faculty-card">
+            <img src="林學志 助理教授.jpg" alt="林學志 助理教授" onclick="toggleInfo('info-lin2')">
+            <p class="faculty-name" onclick="toggleInfo('info-lin2')">林學志 助理教授</p>
+            <div id="info-lin2" class="faculty-info">
+                <p><strong>學歷：</strong>國立高雄師範大學工業科技教育學系博士/碩士<br>國立屏東師範學院數學教育學系學士</p>
+                <p><strong>信箱：</strong>t4456@mail.nknu.edu.tw</p>
+                <p><strong>研究室：</strong>7651</p>
+            </div>
+        </div>
+
+        <div class="faculty-card">
+            <img src="范斯淳 副教授.jpg" alt="范斯淳 副教授" onclick="toggleInfo('info-fan')">
+            <p class="faculty-name" onclick="toggleInfo('info-fan')">范斯淳 副教授</p>
+            <div id="info-fan" class="faculty-info">
+                <p><strong>學歷：</strong>國立臺灣師範大學 科技應用與人力資源發展學系博士/碩士<br>國立高雄師範大學 工業科技教育學系學士</p>
+                <p><strong>信箱：</strong>scfan@mail.nknu.edu.tw</p>
+                <p><strong>研究室：</strong>7614</p>
+            </div>
+        </div>
+
+        <div class="faculty-card">
+            <img src="陳君瑜 副教授.jpg" alt="陳君瑜 副教授" onclick="toggleInfo('info-chen1')">
+            <p class="faculty-name" onclick="toggleInfo('info-chen1')">陳君瑜 副教授</p>
+            <div id="info-chen1" class="faculty-info">
+                <p><strong>學歷：</strong>高雄師範大學工業科技教育學系博士<br>台灣大學電機工程系碩士<br>交通大學控制工程系學士</p>
+                <p><strong>信箱：</strong>t2611@mail.nknu.edu.tw</p>
+                <p><strong>研究室：</strong>7616</p>
+            </div>
+        </div>
+
+        <div class="faculty-card">
+            <img src="曾絲宜 副教授.jpg" alt="曾絲宜 副教授" onclick="toggleInfo('info-tseng')">
+            <p class="faculty-name" onclick="toggleInfo('info-tseng')">曾絲宜 副教授</p>
+            <div id="info-tseng" class="faculty-info">
+                <p><strong>學歷：</strong>國立臺灣師範大學 工業教育學系博士<br>國立臺灣藝術大學 圖文傳播藝術學系碩士/學士</p>
+                <p><strong>信箱：</strong>syt@mail.nknu.edu.tw</p>
+                <p><strong>研究室：</strong>7615</p>
+            </div>
+        </div>
+
+        <div class="faculty-card">
+            <img src="陳彥倫 副教授.jpg" alt="陳彥倫 副教授" onclick="toggleInfo('info-chen2')">
+            <p class="faculty-name" onclick="toggleInfo('info-chen2')">陳彥倫 副教授</p>
+            <div id="info-chen2" class="faculty-info">
+                <p><strong>學歷：</strong>美國俄亥俄州立大學(The Ohio State University) 電機資訊工程研究所 博士</p>
+                <p><strong>信箱：</strong>yenlun.chen@mail.nknu.edu.tw</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>副標2：活動介紹</h2>
+    <div class="activity-section">
+        <p>為推廣高師大工教系並提升國民的 MAKER 精神與科技素養，我們規劃了豐富的闖關活動！</p>
+        <ul>
+            <li><strong>活動機制：</strong>線上線下雙路進行，採用年輕人最愛的「刮刮樂」與「盲盒機制」</li>
+            <li><strong>卡牌收集：</strong>活動小卡分成「ㄅ、ㄆ、ㄇ、ㄈ、儿」五個階層。內容涵蓋系上教授、各種發電方式/電廠，以及生活科技工具（如鑿刀、銑床等）</li>
+            <li><strong>特殊驚喜：</strong>特別設立的「儿」階層包含突發事件（如泥火山噴發、宿舍停電）與教授/同學的迷因醜照，為活動增加喜感 </li>
+            <li><strong>互動科技：</strong>部分小卡附有 QR Code，可連結至教授勉勵學子的話、機具使用方式或發電原理</li>
+            <li><strong>闖關實作：</strong>結合 VR 模擬課程（如木工作品、室內配線等），並有實作課程讓參與者使用木工車床製作專屬木頭筆</li>
+            <li><strong>豐富獎品：</strong>依完成程度發放小卡，集滿並完成表單即可獲得抽獎機會，獎品包含人物衣服、工具包、行動電源等</li>
+        </ul>
+    </div>
+
+    <h2>副標3：和晏給學弟妹的影片</h2>
+    <div class="video-container">
+        <video width="800" height="450" controls>
+            <source src="和晏一句話.mp4" type="video/mp4">
+            您的瀏覽器不支援 HTML5 影片播放，請確認影片檔案與網頁在同一資料夾中。
+        </video>
+    </div>
+
+    <h2>副標4：工教系介紹</h2>
+    <div class="video-container">
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/XnBUpuoDhms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+</div>
+
+</body>
+</html>
